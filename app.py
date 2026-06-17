@@ -21,12 +21,20 @@ st.write("Upload an image of waste to classify it.")
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
-# --- Added Name and College Below Upload Option ---
+# --- Developed By Section ---
 st.markdown("---")
 st.write("### Developed By")
 st.write("**Gaurav Gupta** | BIT Mesra, AIML")
+
+# LinkedIn link with icon
+st.markdown(
+    '<a href="https://www.linkedin.com/in/gaurav-gupta-79754a377/" target="_blank">'
+    '<img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" width="25" style="vertical-align: middle;"/>'
+    ' My LinkedIn Profile</a>', 
+    unsafe_allow_html=True
+)
 st.markdown("---")
-# --------------------------------------------------
+# ----------------------------
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
