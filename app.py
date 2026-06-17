@@ -6,18 +6,22 @@ import numpy as np
 # Load your model (Keras 2 standard)
 @st.cache_resource
 def load_my_model():
-    # Keras 2 handles .h5 files natively
     model = tf.keras.models.load_model('waste_speration.h5')
     return model
 
 model = load_my_model()
 
-# Ensure these match the EXACT alphabetical order of your training folders
+# Ensure these match the exact alphabetical order of your training folders
 class_names = ['battery', 'biological', 'brown-glass', 'cardboard', 'clothes', 
                'green-glass', 'metal', 'paper', 'plastic', 'shoes', 'trash', 'white-glass']
 
 st.title("Waste Classification App ♻️")
 st.write("Upload an image of waste to classify it.")
+
+# Add your credentials in the sidebar
+st.sidebar.markdown("### Developed By")
+st.sidebar.write("Gaurav Gupta")
+st.sidebar.write("BIT Mesra, AIML")
 
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
@@ -26,10 +30,9 @@ if uploaded_file is not None:
     st.image(image, caption='Uploaded Image', use_container_width=True)
     
     # Preprocessing
-    # Ensure this matches the resize used during your training
     img = image.resize((224, 224))
     img_array = tf.keras.preprocessing.image.img_to_array(img)
-    img_array = np.expand_dims(img_array, axis=0) # Using numpy for dimension expansion
+    img_array = np.expand_dims(img_array, axis=0)
     
     # Predict
     predictions = model.predict(img_array)
