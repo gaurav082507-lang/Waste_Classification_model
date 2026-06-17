@@ -19,13 +19,14 @@ class_names = ['battery', 'biological', 'brown-glass', 'cardboard', 'clothes',
 st.title("Waste Classification App ♻️")
 st.write("Upload an image of waste to classify it.")
 
-# --- Added Name and College ---
-st.sidebar.markdown("### Developed By")
-st.sidebar.write("**Gaurav Gupta**")
-st.sidebar.write("BIT Mesra, AIML")
-# ------------------------------
-
 uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+
+# --- Added Name and College Below Upload Option ---
+st.markdown("---")
+st.write("### Developed By")
+st.write("**Gaurav Gupta** | BIT Mesra, AIML")
+st.markdown("---")
+# --------------------------------------------------
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file)
