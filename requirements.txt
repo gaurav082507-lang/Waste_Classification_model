@@ -1,0 +1,4 @@
+streamlit
+tensorflow==2.15.0  # Or whichever version you used in your notebook
+numpy
+pillow
